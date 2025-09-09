@@ -268,3 +268,9 @@ main, header, footer, section{
   text-align: left;    /* or center if you prefer */
   opacity: 0.85;
 }
+.project-left p:nth-child(3) {
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.4;
+  margin-top: 4px;
+}

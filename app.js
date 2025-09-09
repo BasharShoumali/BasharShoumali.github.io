@@ -4,19 +4,22 @@ const PROJECTS = [
     slug: "bpark", 
     title: "BPark Parking System", 
     stack: "JavaFX • MySQL • OCSF", 
-    link: "#", 
-    logo: "BSH_logo_circle.png",   // your logo image path
-    repo: "https://github.com/BasharShoumali/BPark" // actual repo link
+    link: "epark.png", 
+    logo: "epark.png",
+    repo: "https://github.com/BasharShoumali/BPark",
+    description: "A college project: a smart parking system built using JavaFX, MySQL, and OCSF for client-server communication."
   },
   { 
-    slug: "avatarshop", 
-    title: "3D Avatar Shop", 
-    stack: "Angular • Three.js • Node", 
-    link: "#", 
-    logo: "BSH_logo_circle.png", 
-    repo: "https://github.com/BasharShoumali/AvatarShop"
+    slug: "nailsbychristeen", 
+    title: "Nails by Christeen", 
+    stack: "React • Node.js • MySQL", 
+    link: "ck_nails_round.png", 
+    logo: "ck_nails_round.png",
+    repo: "https://github.com/BasharShoumali/NailsByChristeen",
+    description: "An appointment booking and stock management system for a nail salon, designed to help the owner run the business smoothly and clearly."
   }
 ];
+
 
 
 // ================== Render projects ==================
@@ -29,7 +32,7 @@ const PROJECTS = [
     const card = document.createElement('div');
     card.classList.add('project-card');
 
-    // Left side: title + stack + "Open" link
+    // Left side: title, stack, description
     const left = document.createElement('div');
     left.classList.add('project-left');
 
@@ -39,12 +42,12 @@ const PROJECTS = [
     const t = document.createElement('p');
     t.textContent = p.stack;
 
-    const a = document.createElement('a');
-    a.href = p.link; a.target = '_blank'; a.rel = 'noreferrer'; a.textContent = 'Open';
+    const d = document.createElement('p');
+    d.textContent = p.description;  // new description line
 
     left.appendChild(h);
     left.appendChild(t);
-    left.appendChild(a);
+    left.appendChild(d);
 
     // Right side: logo
     const right = document.createElement('div');
@@ -69,7 +72,6 @@ const PROJECTS = [
     grid.appendChild(card);
   });
 })();
-
 
 // ================== Contact form ==================
 (function contactForm(){
