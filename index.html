@@ -39,6 +39,27 @@
     <div class="header-inner">
       <div class="brand">Bashar Shoumali</div>
       <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">☰</button>
+      
+      <!-- Language Switcher Button with flags -->
+<div class="lang-switcher">
+  <button data-lang="en" aria-label="English">
+    <img src="https://flagcdn.com/24x18/us.png"
+         srcset="https://flagcdn.com/48x36/us.png 2x, https://flagcdn.com/72x54/us.png 3x"
+         alt="English Flag" width="24" height="18">
+  </button>
+  <button data-lang="he" aria-label="Hebrew">
+    <img src="https://flagcdn.com/24x18/il.png"
+         srcset="https://flagcdn.com/48x36/il.png 2x, https://flagcdn.com/72x54/il.png 3x"
+         alt="Hebrew Flag" width="24" height="18">
+  </button>
+  <button data-lang="ar" aria-label="Arabic">
+    <img src="https://flagcdn.com/24x18/eg.png"
+         srcset="https://flagcdn.com/48x36/eg.png 2x, https://flagcdn.com/72x54/eg.png 3x"
+         alt="Arabic Flag" width="24" height="18">
+  </button>
+</div>
+
+      
       <nav id="site-nav" class="site-nav">
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -205,6 +226,7 @@
   </main>
 
   <!-- Scripts -->
+  <script src="lang.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

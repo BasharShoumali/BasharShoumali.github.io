@@ -343,7 +343,7 @@ main, header, footer, section { background: transparent !important; }
   margin-top: 12px;
   font-size: .95rem;
   color: var(--muted);
-  text-align: left;
+  text-align: start;
   opacity: .85;
 }
 .project-left p:nth-child(3) {
@@ -700,4 +700,25 @@ section { scroll-margin-top: calc(var(--header-h) + 16px); }
     letter-spacing: .1em;
     margin-left:auto;
   }
+}
+.lang-switcher {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.lang-switcher button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.lang-switcher button:hover {
+  background: rgba(255,255,255,0.15);
+}
+.lang-switcher img {
+  display: block;
+  width: 24px;
+  height: 18px;
 }
