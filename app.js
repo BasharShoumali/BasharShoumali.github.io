@@ -360,16 +360,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector("header nav");
 
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("show");
-    });
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
 
-    // Close menu when any link is clicked (optional)
-    navMenu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("show");
-      });
-    });
-  }
+  // Optional: close menu when a link is clicked
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => navMenu.classList.remove("show"));
+  });
 });
