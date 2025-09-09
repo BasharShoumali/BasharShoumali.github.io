@@ -1,6 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <style>
+  html,body{margin:0;height:100%}
+  /* keep content above the canvases */
+  header,main,footer{position:relative; z-index:0; background:transparent}
+  /* make canvases fixed behind content */
+  #starfield{position:fixed; inset:0; z-index:-2; pointer-events:none}
+  #skybody{position:fixed; left:0; top:0; z-index:-1; pointer-events:none}
+  /* dark background as fallback so you don't see white */
+  body{background:#000; color:#7cc7b8; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif}
+</style>
+
   <meta charset="utf-8" />
   <title>Bashar Shoumali</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
