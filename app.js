@@ -5,7 +5,7 @@ const PROJECTS = [
     title: "BPark Parking System", 
     stack: "JavaFX • MySQL • OCSF", 
     link: "#", 
-    logo: "./BSH_logo_circle.png",   // your logo image path
+    logo: "BSH_logo_circle.png",   // your logo image path
     repo: "https://github.com/BasharShoumali/BPark" // actual repo link
   },
   { 
@@ -13,7 +13,7 @@ const PROJECTS = [
     title: "3D Avatar Shop", 
     stack: "Angular • Three.js • Node", 
     link: "#", 
-    logo: "./BSH_logo_circle.png", 
+    logo: "BSH_logo_circle.png", 
     repo: "https://github.com/BasharShoumali/AvatarShop"
   }
 ];
