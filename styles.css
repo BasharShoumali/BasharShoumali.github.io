@@ -33,10 +33,10 @@ main, header>div, footer>div{
 
 /* ---------- Header / Nav ---------- */
 header{
-  position:sticky;             /* stay on top while scrolling */
+  position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(0,0,0,0.28); /* translucent over stars */
+  background:rgba(0,0,0,0.28);
   backdrop-filter:blur(6px);
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
@@ -46,27 +46,19 @@ header>div{
   justify-content:space-between;
   height:64px;
 }
-header>div>div:first-child{      /* the "BSH" brand div */
+header>div>div:first-child{
   font-weight:800;
   letter-spacing:.1em;
 }
-header nav{
-  display:flex;
-  gap:14px;
-}
-header nav a{
-  opacity:.85;
-}
+header nav{display:flex; gap:14px;}
+header nav a{opacity:.85;}
 header nav a:hover,
-header nav a:focus{
-  opacity:1;
-  text-decoration:underline;
-}
+header nav a:focus{opacity:1; text-decoration:underline;}
 
 /* ---------- Sections ---------- */
 section{
   padding:48px 0;
-  scroll-margin-top:80px;        /* so anchors don't hide under sticky header */
+  scroll-margin-top:80px;
 }
 
 /* Hero CTA links (your two links in #home) */
@@ -86,14 +78,13 @@ section{
 }
 
 /* ---------- Projects ---------- */
-#projects-grid {
-  display: flex;
-  flex-direction: column;   /* stack vertically */
-  gap: 16px;                /* space between cards */
-  max-width: 600px;         /* optional: limit width */
+#projects-grid{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  max-width:600px;
 }
-
-#projects-grid > div{            /* card */
+#projects-grid > div{
   background:rgba(0,0,0,0.35);
   border:1px solid rgba(255,255,255,0.08);
   border-radius:12px;
@@ -105,13 +96,8 @@ section{
   transform:translateY(-2px);
   box-shadow:0 0 16px rgba(124,199,184,0.8);
 }
-#projects-grid h3{
-  margin:0 0 6px 0;
-}
-#projects-grid p{
-  margin:0 0 10px 0;
-  opacity:.85;
-}
+#projects-grid h3{margin:0 0 6px 0;}
+#projects-grid p{margin:0 0 10px 0; opacity:.85;}
 
 /* ---------- Contact form ---------- */
 #contact-form{
@@ -119,9 +105,7 @@ section{
   gap:12px;
   max-width:560px;
 }
-#contact-form label{
-  display:block;
-}
+#contact-form label{display:block;}
 #contact-form input,
 #contact-form textarea{
   width:100%;
@@ -171,106 +155,177 @@ footer>div{
 #starfield{
   position:fixed;
   inset:0;
-  z-index:-2;            /* behind everything */
-  pointer-events:none;   /* never block clicks */
-  background:transparent !important; /* allow the canvas paint to show */
+  z-index:-2;
+  pointer-events:none;
+  background:transparent !important;
 }
 #skybody{
   position:fixed;
   left:0;
   top:0;
-  z-index:-1;            /* above starfield, still behind content */
+  z-index:-1;
   pointer-events:none;
-  /* app.js already sets size/transform; override here if you want */
 }
 
 /* Keep all app surfaces translucent so stars show through */
-main, header, footer, section{
-  background:transparent !important;
+main, header, footer, section{background:transparent !important;}
+
+/* ---------- Page container ---------- */
+.page-container{
+  max-width:1100px;
+  margin-left:120px;
+  margin-right:20px;
+  padding:0 20px;
 }
-.page-container {
-  max-width: 1100px;      /* page width limit */
-  margin-left: 120px;     /* push content to the right */
-  margin-right: 20px;     /* small right margin */
-  padding: 0 20px;
+@media (max-width:768px){
+  .page-container{margin-left:20px; margin-right:20px;}
 }
 
-/* On small screens, remove the extra left margin */
-@media (max-width: 768px) {
-  .page-container {
-    margin-left: 20px;
-    margin-right: 20px;
+/* ---------- Project header (small round logo) ---------- */
+.project-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between; /* title left, logo right */
+}
+/* Shared logo look */
+.project-logo{
+  border-radius:50%;
+  object-fit:cover;
+  background:white;
+  transition:transform .2s ease;
+}
+/* Size in header */
+.project-header .project-logo{
+  width:40px;
+  height:40px;
+  padding:4px;
+}
+/* Size in cards */
+.project-card .project-logo{
+  width:120px;
+  height:120px;
+  padding:8px;
+}
+.project-logo:hover{transform:scale(1.1);}
+
+/* ---------- Project card ---------- */
+.project-card{
+  display:flex;
+  align-items:stretch;
+  justify-content:space-between;
+  padding:16px;
+  background:rgba(0,0,0,0.35);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:12px;
+  box-shadow:0 0 10px rgba(124,199,184,0.5);
+  transition:box-shadow .3s ease, transform .3s ease;
+}
+.project-left{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:8px;
+}
+.project-right{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding-left:16px;
+  min-width:140px;
+}
+.projects-note{
+  margin-top:12px;
+  font-size:.95rem;
+  color:var(--muted);
+  text-align:left;
+  opacity:.85;
+}
+.project-left p:nth-child(3){
+  font-size:.9rem;
+  color:#aaa;
+  line-height:1.4;
+  margin-top:4px;
+}
+
+/* ---------- Skills section ---------- */
+#skills{padding:40px 0;}
+.skills-grid{
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+  margin-top:20px;
+}
+.skills-category{
+  background:rgba(0,0,0,0.35);
+  border-radius:12px;
+  padding:16px;
+  box-shadow:0 0 10px rgba(124,199,184,0.5);
+}
+.skills-category h3{
+  margin-top:0;
+  color:#7cc7b8;
+  margin-bottom:10px;
+}
+
+/* Base list layout */
+.skills-category ul{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  padding:0;
+  margin:0;
+}
+.skills-category li{
+  display:flex;
+  flex-direction:column;  /* icon above text */
+  align-items:center;
+  gap:6px;
+  margin:0;
+  padding:0;
+  list-style:none;
+  text-align:center;
+}
+
+/* Technical: tighter wrap + fixed item width */
+.skills-category.technical ul{
+  gap:12px;
+  justify-content:flex-start;
+}
+.skills-category.technical li{
+  width:80px;           /* keeps a neat grid */
+}
+
+/* Icons: uniform size + round shape */
+.skills-category li img{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:#fff;
+  padding:6px;
+  object-fit:contain;
+  box-shadow:0 0 6px rgba(124,199,184,0.6);
+  transition:transform .2s ease;
+}
+.skills-category li img:hover{transform:scale(1.1);}
+
+/* Languages: flags same style as icons */
+.skills-category.languages ul li img.flag-bullet{
+  width:50px !important;
+  height:50px !important;
+  border-radius:50% !important;
+  background:#fff !important;
+  padding:6px !important;
+  object-fit:contain !important;
+  box-shadow:0 0 6px rgba(124,199,184,0.6) !important;
+  transition:transform .2s ease;
+}
+.skills-category.languages ul li img.flag-bullet:hover{transform:scale(1.1);}
+
+/* Responsive flags */
+@media (max-width:600px){
+  .skills-category.languages ul li img.flag-bullet{
+    width:40px !important;
+    height:40px !important;
+    padding:4px !important;
   }
-}
-.project-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* title left, logo right */
-}
-
-.project-logo {
-  width: 40px;           /* bigger logo */
-  height: 40px;
-  border-radius: 50%;     /* makes it a circle */
-  object-fit: cover;      /* ensures logo fits inside circle */
-  background: white;      /* optional: circle background if logo is transparent */
-  padding: 4px;           /* small padding inside circle */
-  transition: transform 0.2s ease;
-}
-
-.project-logo:hover {
-  transform: scale(1.1);
-}
-.project-card {
-  display: flex;
-  align-items: stretch;   /* both sides full height */
-  justify-content: space-between;
-  padding: 16px;
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(124,199,184,0.5);
-  transition: box-shadow .3s ease, transform .3s ease;
-}
-
-.project-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 8px;
-}
-
-.project-right {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: 16px;
-  min-width: 140px; /* give space for the big circle */
-}
-
-.project-logo {
-  width: 120px;        /* fixed size, bigger than text height */
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: white;
-  padding: 8px;
-  transition: transform 0.2s ease;
-}
-
-.project-logo:hover {
-  transform: scale(1.1);
-}
-.projects-note {
-  margin-top: 12px;
-  font-size: 0.95rem;
-  color: var(--muted);
-  text-align: left;    /* or center if you prefer */
-  opacity: 0.85;
-}
-.project-left p:nth-child(3) {
-  font-size: 0.9rem;
-  color: #aaa;
-  line-height: 1.4;
-  margin-top: 4px;
 }
