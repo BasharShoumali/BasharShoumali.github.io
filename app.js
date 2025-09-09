@@ -1,26 +1,75 @@
 // ================== Data ==================
 const PROJECTS = [
-  { slug: "bpark", title: "BPark Parking System", stack: "JavaFX • MySQL • OCSF", link: "#" },
-  { slug: "avatarshop", title: "3D Avatar Shop", stack: "Angular • Three.js • Node", link: "#" },
+  { 
+    slug: "bpark", 
+    title: "BPark Parking System", 
+    stack: "JavaFX • MySQL • OCSF", 
+    link: "#", 
+    logo: "./BSH_logo_circle.png",   // your logo image path
+    repo: "https://github.com/BasharShoumali/BPark" // actual repo link
+  },
+  { 
+    slug: "avatarshop", 
+    title: "3D Avatar Shop", 
+    stack: "Angular • Three.js • Node", 
+    link: "#", 
+    logo: "./BSH_logo_circle.png", 
+    repo: "https://github.com/BasharShoumali/AvatarShop"
+  }
 ];
+
 
 // ================== Render projects ==================
 (function renderProjects(){
   const grid = document.getElementById('projects-grid');
   if (!grid) return;
   grid.innerHTML = '';
+
   PROJECTS.forEach(p => {
     const card = document.createElement('div');
+    card.classList.add('project-card');
+
+    // Left side: title + stack + "Open" link
+    const left = document.createElement('div');
+    left.classList.add('project-left');
+
     const h = document.createElement('h3');
-    const t = document.createElement('p');
-    const a = document.createElement('a');
     h.textContent = p.title;
+
+    const t = document.createElement('p');
     t.textContent = p.stack;
+
+    const a = document.createElement('a');
     a.href = p.link; a.target = '_blank'; a.rel = 'noreferrer'; a.textContent = 'Open';
-    card.appendChild(h); card.appendChild(t); card.appendChild(a);
+
+    left.appendChild(h);
+    left.appendChild(t);
+    left.appendChild(a);
+
+    // Right side: logo
+    const right = document.createElement('div');
+    right.classList.add('project-right');
+
+    const logoLink = document.createElement('a');
+    logoLink.href = p.repo;
+    logoLink.target = "_blank";
+    logoLink.rel = "noreferrer";
+
+    const img = document.createElement('img');
+    img.src = p.logo;
+    img.alt = p.title + " GitHub Repo";
+    img.classList.add('project-logo');
+
+    logoLink.appendChild(img);
+    right.appendChild(logoLink);
+
+    // Put left + right into card
+    card.appendChild(left);
+    card.appendChild(right);
     grid.appendChild(card);
   });
 })();
+
 
 // ================== Contact form ==================
 (function contactForm(){

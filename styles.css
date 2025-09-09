@@ -86,11 +86,13 @@ section{
 }
 
 /* ---------- Projects ---------- */
-#projects-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
-  gap:16px;
+#projects-grid {
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  gap: 16px;                /* space between cards */
+  max-width: 600px;         /* optional: limit width */
 }
+
 #projects-grid > div{            /* card */
   background:rgba(0,0,0,0.35);
   border:1px solid rgba(255,255,255,0.08);
@@ -185,4 +187,84 @@ footer>div{
 /* Keep all app surfaces translucent so stars show through */
 main, header, footer, section{
   background:transparent !important;
+}
+.page-container {
+  max-width: 1100px;      /* page width limit */
+  margin-left: 120px;     /* push content to the right */
+  margin-right: 20px;     /* small right margin */
+  padding: 0 20px;
+}
+
+/* On small screens, remove the extra left margin */
+@media (max-width: 768px) {
+  .page-container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* title left, logo right */
+}
+
+.project-logo {
+  width: 40px;           /* bigger logo */
+  height: 40px;
+  border-radius: 50%;     /* makes it a circle */
+  object-fit: cover;      /* ensures logo fits inside circle */
+  background: white;      /* optional: circle background if logo is transparent */
+  padding: 4px;           /* small padding inside circle */
+  transition: transform 0.2s ease;
+}
+
+.project-logo:hover {
+  transform: scale(1.1);
+}
+.project-card {
+  display: flex;
+  align-items: stretch;   /* both sides full height */
+  justify-content: space-between;
+  padding: 16px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(124,199,184,0.5);
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.project-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.project-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 16px;
+  min-width: 140px; /* give space for the big circle */
+}
+
+.project-logo {
+  width: 120px;        /* fixed size, bigger than text height */
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: white;
+  padding: 8px;
+  transition: transform 0.2s ease;
+}
+
+.project-logo:hover {
+  transform: scale(1.1);
+}
+.projects-note {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  text-align: left;    /* or center if you prefer */
+  opacity: 0.85;
 }
