@@ -462,3 +462,86 @@ header nav {
     background: rgba(255,255,255,0.1);
   }
 }
+.footer-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-links a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 12px;
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.footer-links a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+.footer-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 14px;
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.footer-links a i {
+  font-size: 1.2rem;
+}
+
+.footer-links a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.contact-buttons {
+  display: flex;
+  align-items: flex-start;    /* align left */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.contact-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: transform 0.2s ease, background 0.3s ease;
+  min-width: 160px;          /* make buttons equal width */
+}
+
+/* Button colors */
+.btn.whatsapp { background: #25D366; }
+.btn.call { background: #0A84FF; }
+.btn.email { background: #FF5A5F; }
+
+/* Hover effects */
+.contact-buttons .btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.contact-buttons .btn i {
+  font-size: 1.1rem;
+}
