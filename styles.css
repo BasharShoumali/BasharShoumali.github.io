@@ -329,3 +329,84 @@ main, header, footer, section{background:transparent !important;}
     padding:4px !important;
   }
 }
+/* ===== Mobile Fix Pack (append at end) ===== */
+:root { --header-h: 64px; }
+@media (max-width: 480px) {
+  :root { --header-h: 56px; }
+}
+
+/* Prevent sideways scroll from margins/padding */
+html, body { overflow-x: hidden; }
+img, canvas, video { max-width: 100%; height: auto; display: block; }
+
+/* Sticky header: keep height consistent + tighter spacing on phones */
+header>div { height: var(--header-h); padding: 0 12px; }
+header nav { gap: 10px; flex-wrap: wrap; }
+header nav a { padding: 6px 0; }
+
+/* Sections: make anchor offset match header height */
+section { scroll-margin-top: calc(var(--header-h) + 16px); }
+
+/* Container: remove big left offset on small screens */
+@media (max-width: 768px) {
+  .page-container {
+    max-width: 100%;
+    margin: 0 16px;       /* consistent gutters */
+    padding: 0;
+  }
+}
+
+/* Project cards: stack vertically and keep logo reasonable */
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .project-right {
+    min-width: 0;
+    padding-left: 0;
+    margin-top: 12px;
+  }
+  .project-card .project-logo {
+    width: 84px;          /* smaller circle on phones */
+    height: 84px;
+    padding: 6px;
+  }
+}
+
+/* Header “small” logo: don’t overflow */
+.project-header .project-logo {
+  width: 34px;
+  height: 34px;
+  padding: 3px;
+}
+
+/* Skills: tighten spacing so it fits */
+@media (max-width: 768px) {
+  .skills-grid { gap: 24px; }
+  .skills-category { padding: 12px; }
+  .skills-category ul { gap: 12px; }
+  .skills-category.technical li { width: 70px; }
+}
+
+/* Flags & icons: scale down a touch on smaller phones */
+@media (max-width: 600px) {
+  .skills-category li img { width: 44px; height: 44px; padding: 5px; }
+  .skills-category.languages ul li img.flag-bullet {
+    width: 44px !important; height: 44px !important; padding: 5px !important;
+  }
+}
+
+/* Touch devices: disable hover “lift” so items don’t jitter on tap */
+@media (pointer: coarse) {
+  #home > div a:hover,
+  #contact-form input:focus,
+  #contact-form textarea:focus,
+  #contact-form button:hover,
+  .project-card:hover,
+  .project-logo:hover {
+    transform: none !important;
+    box-shadow: 0 0 10px rgba(124,199,184,0.5) !important;
+  }
+}
