@@ -658,3 +658,41 @@ section { scroll-margin-top: calc(var(--header-h) + 16px); }
   }
   header nav a:hover { background: rgba(255,255,255,0.1); }
 }
+/* Hero container: text left, image right */
+.hero-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;                 /* smaller space between them */
+  flex-wrap: wrap;
+  text-align: left;          /* keep text aligned left on desktop */
+}
+/* Text side */
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+  max-width: 480px;          /* narrower text width */
+}
+
+/* Image side */
+.hero-image img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(124,199,184,0.7);
+  transition: transform 0.3s ease;
+}
+.hero-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive: stack vertically on narrow screens */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-image img {
+    margin-top: 20px;
+  }
+}
