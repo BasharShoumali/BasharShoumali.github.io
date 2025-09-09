@@ -356,3 +356,20 @@ const PROJECTS = [
     ctx.beginPath(); ctx.arc(cx,cy,r+glow,0,Math.PI*2); ctx.fill();
   }
 })();
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector("header nav");
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+
+    // Close menu when any link is clicked (optional)
+    navMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("show");
+      });
+    });
+  }
+});
