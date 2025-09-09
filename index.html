@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Bashar Shoumali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="./BSH_logo_circle.png" type="image/png">
+</head>
+<body>
+  <!-- Background canvases -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <canvas id="skybody" aria-hidden="true"></canvas>
+
+  <!-- Header / Nav -->
+  <header>
+    <div>
+      <div>BSH</div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <!-- Hero -->
+    <section id="home">
+      <h1>Hi, I’m Bashar 👋</h1>
+      <p>I build performant web apps and delightful UIs.</p>
+      <div>
+        <a href="#projects">See Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div id="projects-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2>About</h2>
+      <p>I’m a software engineering student building full-stack apps with React, Node, and Java/OCSF.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <form id="contact-form">
+        <label>
+          Name
+          <input name="name" required />
+        </label>
+        <br />
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <br />
+        <label>
+          Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <br />
+        <button type="submit">Send</button>
+      </form>
+      <div id="contact-thanks" hidden>
+        <h3>Thanks! I’ll reply soon.</h3>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> BSH • Built without frameworks</p>
+  </footer>
+
+  <!-- All behavior lives in app.js -->
+  <script src="app.js"></script>
+</body>
+</html>
