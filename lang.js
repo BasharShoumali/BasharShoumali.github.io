@@ -21,16 +21,22 @@ const LANG_TEXTS = {
     },
     work: {
       title: "Work Experience",
-      text1:
-        "Before this journey, I spent three years in Germany studying Automotive Engineering. Unfortunately, COVID-19 disrupted my plans before I could finish the degree, so I returned home and worked as a Deputy Manager at Rami Levy, Akko.",
-      text2:
-        "During my studies at Braude, I also worked at an e-cigarette shop, helping people transition away from smoking. Over three years, I learned how to communicate effectively, convince customers to make healthier choices, and stay disciplined — never missing a task or falling behind in my studies.",
-      text3:
-        "Additionally, I worked as a Python exercise checker (Introduction to Computer Science), reviewing and testing code solutions for the course.",
+      // Matches your new <ul> inside #work (no Germany bullet here per your latest HTML)
+      items: [
+        'Worked as <strong>Deputy Manager</strong> at Rami Levy, Akko, leading operations and team coordination.',
+        'Sales and customer service experience at an <strong>e-cigarette shop</strong>, helping people transition away from smoking.',
+        'Served as <strong>Python Exercise Checker</strong> for the "Introduction to Computer Science" course at Braude College for 2 semesters.',
+        'Gained skills in communication, discipline, and problem-solving while balancing work and studies.',
+      ],
     },
     education: {
       title: "Education",
-      text: "Today, I’m in my third year with four semesters left, maintaining an average grade of 83.52 across 93.5 credit points. My goal is to become a versatile software engineer capable of building robust, scalable, and user-friendly applications while continuously learning and adapting to new technologies.",
+      // Matches your new <ul> inside #education (includes the Germany bullet)
+      items: [
+        "Studied <strong>Automotive Engineering</strong> in Germany for 3 years before COVID-19 disrupted plans.",
+        "Currently in the <strong>3rd year of Software Engineering</strong> at Braude College.",
+        "Maintaining a <strong>GPA of 83.52</strong> across <strong>93.5 credit points</strong>.",
+      ],
     },
     projects: {
       title: "Projects",
@@ -57,16 +63,20 @@ const LANG_TEXTS = {
     },
     work: {
       title: "ניסיון תעסוקתי",
-      text1:
-        "לפני המסע הזה למדתי הנדסת רכב בגרמניה במשך שלוש שנים. לצערי, הקורונה שיבשה את התוכניות שלי, אז חזרתי הביתה ועבדתי כסגן מנהל ברמי לוי בעכו.",
-      text2:
-        "במהלך לימודיי בבראודה עבדתי גם בחנות סיגריות אלקטרוניות, ועזרתי לאנשים להפסיק לעשן. במהלך שלוש שנים למדתי איך לתקשר בצורה יעילה, לשכנע לקוחות לבחור בהרגלים בריאים יותר, ולהישאר ממושמע — בלי לפספס אף משימה או להישאר מאחור בלימודים.",
-      text3:
-        "בנוסף, עבדתי כבוחן תרגילים בקורס 'מבוא למדעי המחשב', ובדקתי קוד שהגישו הסטודנטים.",
+      items: [
+        'עבדתי כסגן מנהל בסניף <strong>רמי לוי בעכו</strong>, הובלת תפעול ותיאום צוותים.',
+        'ניסיון במכירות ושירות לקוחות ב<strong>חנות לסיגריות אלקטרוניות</strong>, סיוע לאנשים להפסיק לעשן.',
+        'כיהנתי כ<strong>בודק תרגילי פייתון</strong> בקורס "מבוא למדעי המחשב" בבראודה במשך שני סמסטרים.',
+        'חיזוק תקשורת, משמעת ופתרון בעיות — תוך איזון בין עבודה ללימודים.',
+      ],
     },
     education: {
       title: "השכלה",
-      text: "כיום אני בשנה השלישית עם ארבעה סמסטרים שנותרו לי, עם ממוצע ציונים של 83.52 ב-93.5 נקודות זכות. המטרה שלי היא להפוך למהנדס תוכנה ורסטילי שמסוגל לבנות יישומים חזקים, ניתנים להרחבה, וקלים לשימוש, תוך כדי למידה והתעדכנות בטכנולוגיות חדשות.",
+      items: [
+        "למדתי <strong>הנדסת רכב</strong> בגרמניה במשך שלוש שנים עד שהקורונה שיבשה את התוכניות.",
+        "כיום בשנה <strong>שלישית</strong> להנדסת תוכנה במכללת בראודה.",
+        "ממוצע <strong>83.52</strong> ב-<strong>93.5 נקודות זכות</strong>.",
+      ],
     },
     projects: {
       title: "פרויקטים",
@@ -82,27 +92,31 @@ const LANG_TEXTS = {
     hero: {
       title: "تحويل الفضول إلى كود ✨",
       intro:
-        "مرحباً، أنا بشار — طالب هندسة برمجيات شغوف، مدفوع بالفضول وحب بناء الأشياء التي تحدث فرقاً. أتعلم باستمرار وأجرب وأطور تطبيقات ويب تجمع بين الكود النظيف والأداء وتجربة المستخدم الرائعة.",
+        "مرحباً، أنا بشار — طالب هندسة برمجيات شغوف، مدفوع بالفضول وحب بناء الأشياء التي تحدث فرقاً. أتعلم باستمرار وأجرب وأطوّر تطبيقات ويب تجمع بين الكود النظيف والأداء وتجربة المستخدم الرائعة.",
       tagline: "↓ اكتشف مشاريعي وشاهد رحلتي قيد التنفيذ ↓",
       cta1: "شاهد مشاريعي",
       cta2: "اتصل بي",
     },
     about: {
       title: "عني",
-      text: "اسمي بشار شومالي، أبلغ من العمر 26 عاماً وأدرس حالياً في السنة الثالثة في هندسة البرمجيات في كلية براودة. أحب تعلم التقنيات الجديدة، استكشاف لغات البرمجة، وتحسين مهاراتي البرمجية يومياً.",
+      text: "اسمي بشار شومالي، عمري 26 سنة وأدرس حالياً في السنة الثالثة هندسة البرمجيات في كلية براودة. أحب تعلّم التقنيات الجديدة واستكشاف لغات البرمجة وتطوير مهاراتي يومياً.",
     },
     work: {
       title: "الخبرة العملية",
-      text1:
-        "قبل هذه الرحلة، قضيت ثلاث سنوات في ألمانيا أدرس هندسة السيارات. للأسف، عطلت جائحة كورونا خططي قبل أن أنهي دراستي، لذا عدت إلى الوطن وعملت كنائب مدير في رامي ليفي، عكا.",
-      text2:
-        "خلال دراستي في براودة، عملت أيضاً في متجر للسجائر الإلكترونية، أساعد الناس على الإقلاع عن التدخين. على مدى ثلاث سنوات، تعلمت كيفية التواصل الفعّال، إقناع العملاء باتخاذ خيارات صحية، والحفاظ على الانضباط — دون أن أفوت أي مهمة أو أتأخر في دراستي.",
-      text3:
-        "بالإضافة إلى ذلك، عملت كمراجع لتمارين بايثون في مساق 'مقدمة لعلوم الحاسوب'.",
+      items: [
+        "عملت كنائب مدير في <strong>رامي ليفي، عكّا</strong>، مسؤولاً عن التشغيل وتنسيق الفرق.",
+        "خبرة في المبيعات وخدمة الزبائن في <strong>متجر للسجائر الإلكترونية</strong>، ومساعدة الناس على الإقلاع عن التدخين.",
+        'راجعت تمارين <strong>بايثون</strong> لمساق "مقدمة لعلوم الحاسوب" في كلية براودة لمدة فصلين.',
+        "طوّرت مهارات التواصل والانضباط وحلّ المشكلات أثناء الموازنة بين العمل والدراسة.",
+      ],
     },
     education: {
       title: "التعليم",
-      text: "اليوم، أنا في سنتي الثالثة مع أربعة فصول دراسية متبقية، وأحافظ على معدل 83.52 عبر 93.5 نقطة. هدفي هو أن أصبح مهندس برمجيات متعدد المهارات قادر على بناء تطبيقات قوية وقابلة للتوسع وسهلة الاستخدام مع التعلم المستمر ومواكبة التقنيات الجديدة.",
+      items: [
+        "درست <strong>هندسة السيارات</strong> في ألمانيا لمدة 3 سنوات قبل أن تعطل الجائحة خططي.",
+        "حالياً في <strong>السنة الثالثة</strong> من هندسة البرمجيات في كلية براودة.",
+        "أحافظ على معدل <strong>83.52</strong> عبر <strong>93.5 نقطة</strong>.",
+      ],
     },
     projects: {
       title: "المشاريع",
@@ -218,23 +232,23 @@ function applyLanguage(lang) {
   const aboutText = $("#about p");
   if (aboutText && pack.about?.text) aboutText.textContent = pack.about.text;
 
-  // Work (3 paragraphs)
+  // Work (now bullet list)
   const workTitle = $("#work-title");
   if (workTitle && pack.work?.title) workTitle.textContent = pack.work.title;
+  const workList = $("#work ul");
+  if (workList && Array.isArray(pack.work?.items)) {
+    workList.innerHTML = pack.work.items.map(li => `<li>${li}</li>`).join("");
+  }
 
-  const workParas = $all("#work p");
-  if (workParas[0] && pack.work?.text1) workParas[0].textContent = pack.work.text1;
-  if (workParas[1] && pack.work?.text2) workParas[1].textContent = pack.work.text2;
-  if (workParas[2] && pack.work?.text3) workParas[2].textContent = pack.work.text3;
-
-  // Education
+  // Education (now bullet list)
   const eduTitle = $("#education-title");
   if (eduTitle && pack.education?.title) eduTitle.textContent = pack.education.title;
+  const eduList = $("#education ul");
+  if (eduList && Array.isArray(pack.education?.items)) {
+    eduList.innerHTML = pack.education.items.map(li => `<li>${li}</li>`).join("");
+  }
 
-  const eduText = $("#education p");
-  if (eduText && pack.education?.text) eduText.textContent = pack.education.text;
-
-  // Projects (title + note now translate)
+  // Projects (title + note)
   const projTitle = $("#projects-title");
   if (projTitle && pack.projects?.title) projTitle.textContent = pack.projects.title;
 

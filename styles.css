@@ -722,3 +722,8 @@ section { scroll-margin-top: calc(var(--header-h) + 16px); }
   width: 24px;
   height: 18px;
 }
+#work ul li,
+#education ul li {
+  margin-bottom: 6px; /* adjust the number for bigger or smaller gaps */
+  line-height: 1.5;   /* keeps text nicely spaced */
+}
