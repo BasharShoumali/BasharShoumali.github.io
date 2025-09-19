@@ -1,223 +1,382 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Bashar Shoumali</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <title>Bashar Shoumali</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Inline base styles kept minimal; rest lives in styles.css -->
-  <style>
-    html, body { margin: 0; height: 100%; }
-    /* keep content above the canvases */
-    header, main, footer { position: relative; z-index: 0; background: transparent; }
-    /* make canvases fixed behind content */
-    #starfield { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
-    #skybody  { position: fixed; left: 0; top: 0; z-index: -1; pointer-events: none; }
-    /* dark background as fallback so you don't see white */
-    body { background: #000; color: #7cc7b8; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif; }
-  </style>
+    <!-- Inline base styles kept minimal; rest lives in styles.css -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+      /* keep content above the canvases */
+      header,
+      main,
+      footer {
+        position: relative;
+        z-index: 0;
+        background: transparent;
+      }
+      /* make canvases fixed behind content */
+      #starfield {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+      }
+      #skybody {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        pointer-events: none;
+      }
+      /* dark background as fallback so you don't see white */
+      body {
+        background: #000;
+        color: #7cc7b8;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter,
+          sans-serif;
+      }
+    </style>
 
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="./BSH_logo_circle.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./BSH_logo_circle.png" type="image/png" />
 
-  <!-- Font Awesome (CDN) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-Tbm5Z3CSknBhYgTfrpQ2btdDeYPuMbfdXKavcfXn1uLmcPEK4p+WYAgzt+vT9O1Vlg6EozauuklhZREWFc4+Ug=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-</head>
-<body>
-  <!-- Background canvases -->
-  <canvas id="starfield" aria-hidden="true"></canvas>
-  <canvas id="skybody" aria-hidden="true"></canvas>
+    <!-- Font Awesome (CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-Tbm5Z3CSknBhYgTfrpQ2btdDeYPuMbfdXKavcfXn1uLmcPEK4p+WYAgzt+vT9O1Vlg6EozauuklhZREWFc4+Ug=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Background canvases -->
+    <canvas id="starfield" aria-hidden="true"></canvas>
+    <canvas id="skybody" aria-hidden="true"></canvas>
 
-  <!-- Header / Nav -->
-  <header>
-    <div class="header-inner">
-      <div class="brand">Bashar Shoumali</div>
-      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">☰</button>
-      
-      <!-- Language Switcher Button with flags -->
-<div class="lang-switcher">
-  <button data-lang="en" aria-label="English">
-    <img src="https://flagcdn.com/24x18/us.png"
-         srcset="https://flagcdn.com/48x36/us.png 2x, https://flagcdn.com/72x54/us.png 3x"
-         alt="English Flag" width="24" height="18">
-  </button>
-  <button data-lang="he" aria-label="Hebrew">
-    <img src="https://flagcdn.com/24x18/il.png"
-         srcset="https://flagcdn.com/48x36/il.png 2x, https://flagcdn.com/72x54/il.png 3x"
-         alt="Hebrew Flag" width="24" height="18">
-  </button>
-  <button data-lang="ar" aria-label="Arabic">
-    <img src="https://flagcdn.com/24x18/eg.png"
-         srcset="https://flagcdn.com/48x36/eg.png 2x, https://flagcdn.com/72x54/eg.png 3x"
-         alt="Arabic Flag" width="24" height="18">
-  </button>
-</div>
+    <!-- Header / Nav -->
+    <header>
+      <div class="header-inner">
+        <div class="brand">Bashar Shoumali</div>
+        <button
+          class="menu-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          ☰
+        </button>
 
-      
-      <nav id="site-nav" class="site-nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Main content -->
-  <main>
-  <!-- Hero -->
-  <section id="home" aria-labelledby="home-title">
-  <div class="hero-container">
-    <!-- Left: Text -->
-    <div class="hero-image">
-      <img src="icons/me.jpg" alt="Bashar photo">
-    </div>
-    <div class="hero-text">
-      <h1 id="home-title">Turning Curiosity into Code ✨</h1>
-      <p>
-        Hi, I’m <strong>Bashar</strong> — a passionate software engineering student driven by curiosity and the thrill of building things that matter.
-        I’m constantly learning, experimenting, and crafting web apps that blend clean code, performance, and great user experience.
-      </p>
-      <p class="tagline">↓ Explore my projects and see my journey in action ↓</p>
-      <div class="cta-row">
-        <a href="#projects" class="btn cta">See My Projects</a>
-        <a href="#contact" class="btn secondary">Contact Me</a>
-      </div>
-    </div>
-
-    <!-- Right: Image -->
-    
-  </div>
-  </section>
-
-
-    <!-- Projects -->
-    <section id="projects" aria-labelledby="projects-title">
-      <h2 id="projects-title">Projects</h2>
-      <div id="projects-grid" aria-live="polite"></div>
-      <p class="projects-note">Click any project logo to view its source code on GitHub.</p>
-    </section>
-
-    <!-- About -->
-    <section id="about" aria-labelledby="about-title">
-      <h2 id="about-title">About Me</h2>
-      <p>
-        My name is <strong>Bashar Shoumali</strong>, I’m 26 years old and currently a third-year
-        <strong>Software Engineering student at Braude College</strong>.
-        I’m passionate about learning new technologies, exploring programming languages,
-        and improving my coding skills every day.
-      </p>
-    </section>
-
-    <!-- Work Experience -->
-    <section id="work" aria-labelledby="work-title">
-      <h2 id="work-title">Work Experience</h2>
-      <ul>
-        <li>Worked as <strong>Deputy Manager</strong> at Rami Levy, Akko, leading operations and team coordination.</li>
-        <li>Sales and customer service experience at an <strong>e-cigarette shop</strong>, helping people transition away from smoking.</li>
-        <li>Served as <strong>Python Exercise Checker</strong> for the "Introduction to Computer Science" course at Braude College for 2 semesters.</li>
-        <li>Gained skills in communication, discipline, and problem-solving while balancing work and studies.</li>
-      </ul>
-    </section>
-
-    <!-- Education -->
-    <section id="education" aria-labelledby="education-title">
-      <h2 id="education-title">Education</h2>
-      <ul>
-        <li>Studied <strong>Automotive Engineering</strong> in Germany for 3 years before COVID-19 disrupted plans.</li>
-        <li>Currently in the <strong>3rd year of Software Engineering</strong> at Braude College.</li>
-        <li>Maintaining a <strong>GPA of 83.52</strong> across <strong>93.5 credit points</strong>.</li>
-      </ul>
-    </section>
-
-
-    <!-- Skills -->
-    <section id="skills" aria-labelledby="skills-title">
-      <h2 id="skills-title">Skills</h2>
-      <div class="skills-grid">
-
-        <!-- Technical Skills -->
-        <div class="skills-category technical">
-          <h3>Technical Skills</h3>
-          <ul>
-            <li><img src="icons/react.png" alt="React logo" /> React.js</li>
-            <li><img src="icons/angular.png" alt="Angular logo" /> Angular</li>
-            <li><img src="icons/Java.png" alt="Java logo" /> Java &amp; JavaFX</li>
-            <li><img src="icons/python.png" alt="Python logo" /> Python (Automation &amp; Scripting)</li>
-            <li><img src="icons/node.png" alt="Node.js logo" /> Node.js &amp; Express</li>
-            <li><img src="icons/mysql.png" alt="MySQL logo" /> MySQL &amp; Database Design</li>
-            <li><img src="icons/html.png" alt="HTML logo" /> HTML</li>
-            <li><img src="icons/css.png" alt="CSS logo" /> CSS</li>
-            <li><img src="icons/javascript.png" alt="JavaScript logo" /> JavaScript</li>
-            <li><img src="icons/git.png" alt="Git logo" /> Git</li>
-            <li><img src="icons/github.png" alt="GitHub logo" /> GitHub</li>
-          </ul>
+        <!-- Language Switcher Button with flags -->
+        <div class="lang-switcher">
+          <button data-lang="en" aria-label="English">
+            <img
+              src="https://flagcdn.com/24x18/us.png"
+              srcset="
+                https://flagcdn.com/48x36/us.png 2x,
+                https://flagcdn.com/72x54/us.png 3x
+              "
+              alt="English Flag"
+              width="24"
+              height="18"
+            />
+          </button>
+          <button data-lang="he" aria-label="Hebrew">
+            <img
+              src="https://flagcdn.com/24x18/il.png"
+              srcset="
+                https://flagcdn.com/48x36/il.png 2x,
+                https://flagcdn.com/72x54/il.png 3x
+              "
+              alt="Hebrew Flag"
+              width="24"
+              height="18"
+            />
+          </button>
+          <button data-lang="ar" aria-label="Arabic">
+            <img
+              src="https://flagcdn.com/24x18/eg.png"
+              srcset="
+                https://flagcdn.com/48x36/eg.png 2x,
+                https://flagcdn.com/72x54/eg.png 3x
+              "
+              alt="Arabic Flag"
+              width="24"
+              height="18"
+            />
+          </button>
         </div>
+        <nav id="site-nav" class="site-nav">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-        <!-- Languages with flags -->
-        <div class="skills-category languages">
-          <h3>Languages</h3>
-          <ul>
-            <li>
-              <img class="flag-bullet"
-                   src="https://flagcdn.com/20x15/eg.png"
-                   srcset="https://flagcdn.com/40x30/eg.png 2x, https://flagcdn.com/60x45/eg.png 3x"
-                   alt="Flag of Egypt" />
-              Arabic — Native
-            </li>
-            <li>
-              <img class="flag-bullet"
-                   src="https://flagcdn.com/20x15/il.png"
-                   srcset="https://flagcdn.com/40x30/il.png 2x, https://flagcdn.com/60x45/il.png 3x"
-                   alt="Flag of Israel" />
-              Hebrew — Fluent
-            </li>
-            <li>
-              <img class="flag-bullet"
-                   src="https://flagcdn.com/20x15/us.png"
-                   srcset="https://flagcdn.com/40x30/us.png 2x, https://flagcdn.com/60x45/us.png 3x"
-                   alt="Flag of the United States" />
-              English — Fluent
-            </li>
-            <li>
-              <img class="flag-bullet"
-                   src="https://flagcdn.com/20x15/de.png"
-                   srcset="https://flagcdn.com/40x30/de.png 2x, https://flagcdn.com/60x45/de.png 3x"
-                   alt="Flag of Germany" />
-              German — Fluent
-            </li>
-          </ul>
+    <!-- Main content -->
+    <main>
+      <!-- Hero -->
+      <section id="home" aria-labelledby="home-title">
+        <div class="hero-container">
+          <!-- Left: Text -->
+          <div class="hero-image">
+            <img src="icons/me.jpg" alt="Bashar photo" />
+          </div>
+          <div class="hero-text">
+            <h1 id="home-title">Turning Curiosity into Code ✨</h1>
+            <p>
+              Hi, I’m <strong>Bashar</strong> — a passionate software
+              engineering student driven by curiosity and the thrill of building
+              things that matter. I’m constantly learning, experimenting, and
+              crafting web apps that blend clean code, performance, and great
+              user experience.
+            </p>
+            <p class="tagline">
+              ↓ Explore my projects and see my journey in action ↓
+            </p>
+            <div class="cta-row">
+              <a href="#projects" class="btn cta">See My Projects</a>
+              <a href="#contact" class="btn secondary">Contact Me</a>
+            </div>
+          </div>
+
+          <!-- Right: Image -->
         </div>
+      </section>
 
-      </div>
-    </section>
+      <!-- Projects -->
+      <section id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+        <div id="projects-grid" aria-live="polite"></div>
+        <p class="projects-note">
+          Click any project logo to view its source code on GitHub.
+        </p>
+      </section>
 
-    <!-- Contact -->
-    <section id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact Me</h2>
-      <div class="contact-buttons">
-        <a href="mailto:basharshomaly1@hotmail.com" class="btn email" aria-label="Email me">
-          <img src="./icons/mail.jpg" alt="Email icon" /> Email Me
-        </a>
-        <a href="tel:+972527882243" class="btn call" aria-label="Call me">
-          <img src="./icons/call.jpg" alt="Phone icon" /> Call Me
-        </a>
-        <a href="https://wa.me/972527882243" target="_blank" rel="noopener" class="btn whatsapp" aria-label="WhatsApp chat">
-          <img src="./icons/whatsapp.jpg" alt="WhatsApp icon" /> WhatsApp
-        </a>
-      </div>
-    </section>
-  </main>
+      <!-- About -->
+      <section id="about" aria-labelledby="about-title">
+        <h2 id="about-title">About Me</h2>
+        <p>
+          My name is <strong>Bashar Shoumali</strong>, I’m 26 years old and
+          currently a third-year
+          <strong>Software Engineering student at Braude College</strong>. I’m
+          passionate about learning new technologies, exploring programming
+          languages, and improving my coding skills every day.
+        </p>
+      </section>
 
-  <!-- Scripts -->
-  <script src="lang.js"></script>
-  <script src="app.js"></script>
-</body>
+      <!-- Work Experience -->
+      <section id="work" aria-labelledby="work-title">
+        <h2 id="work-title">Work Experience</h2>
+        <ul>
+          <li>
+            Worked as <strong>Deputy Manager</strong> at Rami Levy, Akko,
+            leading operations and team coordination.
+          </li>
+          <li>
+            Sales and customer service experience at an
+            <strong>e-cigarette shop</strong>, helping people transition away
+            from smoking.
+          </li>
+          <li>
+            Served as <strong>Python Exercise Checker</strong> for the
+            "Introduction to Computer Science" course at Braude College for 2
+            semesters.
+          </li>
+          <li>
+            Gained skills in communication, discipline, and problem-solving
+            while balancing work and studies.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Education -->
+      <section id="education" aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <ul>
+          <li>
+            Studied <strong>Automotive Engineering</strong> in Germany for 3
+            years before COVID-19 disrupted plans.
+          </li>
+          <li>
+            Currently in the
+            <strong>3rd year of Software Engineering</strong> at Braude College.
+          </li>
+          <li>
+            Maintaining a <strong>GPA of 83.52</strong> across
+            <strong>93.5 credit points</strong>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills</h2>
+        <div class="skills-grid">
+          <!-- Technical Skills -->
+          <div class="skills-category technical">
+            <h3>Technical Skills</h3>
+            <ul>
+              <li><img src="icons/react.png" alt="React logo" /> React.js</li>
+              <li>
+                <img src="icons/angular.png" alt="Angular logo" /> Angular
+              </li>
+              <li>
+                <img src="icons/Java.png" alt="Java logo" /> Java &amp; JavaFX
+              </li>
+              <li>
+                <img src="icons/python.png" alt="Python logo" /> Python
+                (Automation &amp; Scripting)
+              </li>
+              <li>
+                <img src="icons/node.png" alt="Node.js logo" /> Node.js &amp;
+                Express
+              </li>
+              <li>
+                <img src="icons/mysql.png" alt="MySQL logo" /> MySQL &amp;
+                Database Design
+              </li>
+              <li><img src="icons/html.png" alt="HTML logo" /> HTML</li>
+              <li><img src="icons/css.png" alt="CSS logo" /> CSS</li>
+              <li>
+                <img src="icons/javascript.png" alt="JavaScript logo" />
+                JavaScript
+              </li>
+              <li><img src="icons/git.png" alt="Git logo" /> Git</li>
+              <li><img src="icons/github.png" alt="GitHub logo" /> GitHub</li>
+            </ul>
+          </div>
+
+          <!-- Soft Skills / Professional Strengths -->
+          <div class="skills-category soft-skills-block">
+            <h3>Professional Strengths</h3>
+            <ul class="soft-skills-list">
+              <li>
+                💡 <strong>Able to work under pressure</strong> and meet tight
+                deadlines
+              </li>
+              <li>
+                🤖 <strong>Use AI tools</strong> to enhance code quality and
+                accelerate development
+              </li>
+              <li>
+                🧠 <strong>Leverage AI</strong> (e.g. ChatGPT) for continuous
+                learning and debugging
+              </li>
+              <li>
+                👥 <strong>Led a 5-person team</strong> to deliver a successful
+                mid-term academic project (BPark Project)
+              </li>
+              <li>
+                📚 <strong>Self-learner</strong> with strong motivation and
+                discipline
+              </li>
+              <li>
+                🎓 <strong>Learned React.js and Node.js</strong> independently
+                through Udemy courses
+              </li>
+              <li>
+                🛠️ <strong>Self-taught</strong> in MySQL, GitHub, and other
+                modern development tools
+              </li>
+            </ul>
+          </div>
+
+          <!-- Languages with flags -->
+          <div class="skills-category languages">
+            <h3>Languages</h3>
+            <ul>
+              <li>
+                <img
+                  class="flag-bullet"
+                  src="https://flagcdn.com/20x15/eg.png"
+                  srcset="
+                    https://flagcdn.com/40x30/eg.png 2x,
+                    https://flagcdn.com/60x45/eg.png 3x
+                  "
+                  alt="Flag of Egypt"
+                />
+                Arabic — Native
+              </li>
+              <li>
+                <img
+                  class="flag-bullet"
+                  src="https://flagcdn.com/20x15/il.png"
+                  srcset="
+                    https://flagcdn.com/40x30/il.png 2x,
+                    https://flagcdn.com/60x45/il.png 3x
+                  "
+                  alt="Flag of Israel"
+                />
+                Hebrew — Fluent
+              </li>
+              <li>
+                <img
+                  class="flag-bullet"
+                  src="https://flagcdn.com/20x15/us.png"
+                  srcset="
+                    https://flagcdn.com/40x30/us.png 2x,
+                    https://flagcdn.com/60x45/us.png 3x
+                  "
+                  alt="Flag of the United States"
+                />
+                English — Fluent
+              </li>
+              <li>
+                <img
+                  class="flag-bullet"
+                  src="https://flagcdn.com/20x15/de.png"
+                  srcset="
+                    https://flagcdn.com/40x30/de.png 2x,
+                    https://flagcdn.com/60x45/de.png 3x
+                  "
+                  alt="Flag of Germany"
+                />
+                German — Fluent
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact Me</h2>
+        <div class="contact-buttons">
+          <a
+            href="mailto:basharshomaly1@hotmail.com"
+            class="btn email"
+            aria-label="Email me"
+          >
+            <img src="./icons/mail.jpg" alt="Email icon" /> Email Me
+          </a>
+          <a href="tel:+972527882243" class="btn call" aria-label="Call me">
+            <img src="./icons/call.jpg" alt="Phone icon" /> Call Me
+          </a>
+          <a
+            href="https://wa.me/972527882243"
+            target="_blank"
+            rel="noopener"
+            class="btn whatsapp"
+            aria-label="WhatsApp chat"
+          >
+            <img src="./icons/whatsapp.jpg" alt="WhatsApp icon" /> WhatsApp
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="lang.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
