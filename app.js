@@ -16,7 +16,7 @@ const PROJECTS = [
     stack: "React • Node.js • MySQL",
     link: "ck_nails_round.png",
     logo: "ck_nails_round.png",
-    repo: "https://github.com/BasharShoumali/NailsByChristeen",
+    repo: "https://github.com/BasharShoumali/nails_by_christeen_modify",
     description:
       "An appointment booking and stock management system for a nail salon, designed to help the owner run the business smoothly and clearly.",
   },
@@ -39,7 +39,9 @@ function renderProjects(lang = currentLang()) {
 
   PROJECTS.forEach((p) => {
     // pull translations from lang.js (falls back to EN & then to original data)
-    const i18n = (typeof getProjectText === "function" && getProjectText(lang, p.slug)) || {};
+    const i18n =
+      (typeof getProjectText === "function" && getProjectText(lang, p.slug)) ||
+      {};
     const title = i18n.title || p.title;
     const stack = i18n.stack || p.stack;
     const description = i18n.description || p.description;
@@ -333,7 +335,10 @@ function renderProjects(lang = currentLang()) {
   c.style.pointerEvents = "none";
   c.style.opacity = String(opacity);
 
-  const quarterShift = `translate(${-(glow + size / 2)}px, ${-(glow + size / 2)}px)`;
+  const quarterShift = `translate(${-(glow + size / 2)}px, ${-(
+    glow +
+    size / 2
+  )}px)`;
   c.style.transform = quarterShift;
 
   const cx = w / 2,
@@ -359,7 +364,14 @@ function renderProjects(lang = currentLang()) {
     ctx.arc(cx, cy, r + glow, 0, Math.PI * 2);
     ctx.fill();
   } else {
-    const g = ctx.createRadialGradient(cx - r * 0.25, cy - r * 0.25, r * 0.2, cx, cy, r);
+    const g = ctx.createRadialGradient(
+      cx - r * 0.25,
+      cy - r * 0.25,
+      r * 0.2,
+      cx,
+      cy,
+      r
+    );
     g.addColorStop(0, "rgba(245, 245, 255, 1)");
     g.addColorStop(1, "rgba(180, 185, 200, 1)");
     ctx.fillStyle = g;
@@ -369,7 +381,14 @@ function renderProjects(lang = currentLang()) {
 
     ctx.globalAlpha = 0.25;
     function crater(x, y, rr) {
-      const cg = ctx.createRadialGradient(x - rr * 0.3, y - rr * 0.3, rr * 0.2, x, y, rr);
+      const cg = ctx.createRadialGradient(
+        x - rr * 0.3,
+        y - rr * 0.3,
+        rr * 0.2,
+        x,
+        y,
+        rr
+      );
       cg.addColorStop(0, "rgba(120, 130, 150, 1)");
       cg.addColorStop(1, "rgba(90, 95, 110, 1)");
       ctx.fillStyle = cg;
@@ -406,16 +425,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Language init + flag buttons
   const savedLang = currentLang();
-  applyLanguage(savedLang);        // from lang.js
-  renderProjects(savedLang);       // initial Projects render
+  applyLanguage(savedLang); // from lang.js
+  renderProjects(savedLang); // initial Projects render
 
   const langButtons = document.querySelectorAll(".lang-switcher button");
   langButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const lang = btn.getAttribute("data-lang") || "en";
       // save & apply
-      try { localStorage.setItem("selectedLang", lang); } catch {}
-      applyLanguage(lang);         // updates static sections + fires "langchange"
+      try {
+        localStorage.setItem("selectedLang", lang);
+      } catch {}
+      applyLanguage(lang); // updates static sections + fires "langchange"
       // renderProjects will also run via the event listener below
     });
   });
