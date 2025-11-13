@@ -775,6 +775,13 @@ section {
   transform: scale(1.05);
 }
 
+/* Ensure the link sits centered directly under the image */
+.hero-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Profile links under the hero photo (LinkedIn) */
 .profile-links {
   margin-top: 12px;
