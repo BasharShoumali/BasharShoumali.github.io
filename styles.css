@@ -775,6 +775,24 @@ section {
   transform: scale(1.05);
 }
 
+/* Profile links under the hero photo (LinkedIn) */
+.profile-links {
+  margin-top: 12px;
+  text-align: center;
+}
+.profile-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: inline;
+}
+.profile-links a:hover {
+  text-decoration: underline;
+}
+
 /* Responsive: stack vertically on narrow screens */
 @media (max-width: 768px) {
   .hero-container {
